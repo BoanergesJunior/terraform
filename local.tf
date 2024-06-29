@@ -8,6 +8,14 @@ variable "content" {
   default = "Hello"
 }
 
+data "local_file" "content-data-source" {
+  filename = "exemplo.txt"
+}
+
+output "data-souce-result" {
+  value = data.local_file.content-data-source.content
+}
+
 output "id_file" {
   value = resource.local_file.exemplo.id
 }
